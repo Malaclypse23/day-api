@@ -31,6 +31,23 @@ public class Product {
 	
 	private Boolean active;
 	
+	protected Product() {}
+	
+	public Product(String name, ProductTypeEnum productType, SizeEnum size, BigDecimal price, CurrencyEnum currency) {
+		this.name = name;
+		this.productType = productType;
+		this.size = size;
+		this.price = price;
+		this.currency = currency;
+	}
+	
+	 @Override
+	 public String toString() {
+		 return String.format(
+				 "Product[id=%d, name='%s', productType='%s', size='%s']",
+	                id, name, productType, size);
+	 }
+	
 	public long getId() {
 		return id;
 	}
