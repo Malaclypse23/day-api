@@ -2,17 +2,34 @@ package de.tomahawk;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Product {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	private String name;
-	private BigDecimal price;
-	private CurrencyEnum currency;
-	private ProductTypeEnum productType;
-	private SizeEnum size;
-	private Boolean active;
 	
+	private String name;
+	
+	private BigDecimal price;
+	
+	@Enumerated(EnumType.STRING)
+	private CurrencyEnum currency;
+	
+	@Enumerated(EnumType.STRING)
+	private ProductTypeEnum productType;
+	
+	@Enumerated(EnumType.STRING)
+	private SizeEnum size;
+	
+	private Boolean active;
 	
 	public long getId() {
 		return id;
